@@ -10,12 +10,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"], # Autorise toutes les origines (à limiter en production)
+    allow_methods=["*"], # Autorise toutes les méthodes HTTP
+    allow_headers=["*"], # Autorise tous les en-têtes
 )
 
-model = YOLO("yolov8n.pt")
+#Importation de Yolo
+model = YOLO("yolov8n.pt") 
+
 
 CATEGORIES = {
     "bottle": "plastic",
